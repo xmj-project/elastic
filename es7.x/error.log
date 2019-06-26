@@ -1,0 +1,32 @@
+    [elk@localhost node_1]$ bin/elasticsearch-setup-passwords interactive
+
+    SSL connection to https://127.0.0.1:9200/_security/_authenticate?pretty failed: java.security.cert.CertificateException: No subject alternative names present
+    Please check the elasticsearch SSL settings under xpack.security.http.ssl.
+
+    ERROR: Failed to establish SSL connection to elasticsearch at https://127.0.0.1:9200/_security/_authenticate?pretty.
+
+
+[2019-06-24T01:29:13,069][WARN ][o.e.h.AbstractHttpServerTransport] [node_1] caught exception while handling client http traffic, closing connection Netty4HttpChannel{localAddress=0.0.0.0/0.0.0.0:9200, remoteAddress=/127.0.0.1:48266}
+io.netty.handler.codec.DecoderException: io.netty.handler.ssl.NotSslRecordException: not an SSL/TLS record: 474554202f20485454502f312e310d0a557365722d4167656e743a206375726c2f372e32392e300d0a486f73743a203132372e302e302e313a393230300d0a4163636570743a202a2f2a0d0a0d0a
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:472) ~[netty-codec-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:278) ~[netty-codec-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:656) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:556) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:510) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:470) [netty-transport-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:909) [netty-common-4.1.32.Final.jar:4.1.32.Final]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_60]
+Caused by: io.netty.handler.ssl.NotSslRecordException: not an SSL/TLS record: 474554202f20485454502f312e310d0a557365722d4167656e743a206375726c2f372e32392e300d0a486f73743a203132372e302e302e313a393230300d0a4163636570743a202a2f2a0d0a0d0a
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1182) ~[netty-handler-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1247) ~[netty-handler-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:502) ~[netty-codec-4.1.32.Final.jar:4.1.32.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:441) ~[netty-codec-4.1.32.Final.jar:4.1.32.Final]
+	... 15 more
